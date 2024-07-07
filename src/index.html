@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="./assets/favicon/favicon.ico" type="image/x-icon">
+
+    
+</head>
+<body>
+   
+    <header class="header">
+
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="header-logo">Logo</a>
+                <div class="header-inner__right">
+                    <input type="text", placeholder="Search..." class="input-search">
+                    <select name="" id="" class="select-country">
+                        <option value="">All</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Oceania">Oceania</option>
+                        <option value="Americas">Americas</option>
+                    </select>
+                    <span class="btn-them">
+                        <input id="input-checkbox" type="checkbox">
+                        <label for="input-checkbox" class="label-them">
+                            <span class="span-icon-moon">
+                                <i class="fa fa-moon-o" aria-hidden="true"></i>
+                            </span>
+
+                            <span class="span-icon-sun">
+                                <i class="fa fa-sun-o" aria-hidden="true"></i>
+                            </span>
+                        </label>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+
+
+    </header>
+
+    <section class="section-country">
+        <div class="container">
+            <div class="country-block">             
+            </div>
+        </div>
+    </section>
+
+
+    <div class="loading">
+        <div class="lds-hourglass"></div>
+    </div>
+
+</body>
+</html>

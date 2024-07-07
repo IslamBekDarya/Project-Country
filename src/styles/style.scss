@@ -1,0 +1,236 @@
+@import "./reset";
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
+@import "./font-awesome-4.7.0/css/font-awesome.min.css";
+
+
+$font-roboto: "Roboto Slab", serif;
+$z-index-header: 99;
+$z-index-loading: 999;
+
+
+$body-bg-dark: #35383f;
+$body-bg-light: #fff;
+
+$card-bg-dark: #292626;
+$card-bg-light: #fff;
+
+$text-color-dark: #fff;
+$text-color-light: #222222;
+
+$title-color-dark: #fff;
+$title-color-light: #020202;
+
+
+:root {
+  --body-bg-dark: #{$body-bg-dark};
+  --body-bg-light: #{$body-bg-light};
+  --body-bg-default: var(--body-bg-light);
+
+  --card-bg-dark: #{$card-bg-dark};
+  --card-bg-light: #{$card-bg-light};
+  --card-bg-default: var(--card-bg-light);
+
+  --text-color-dark: #{$text-color-dark};
+  --text-color-light: #{$text-color-light};
+  --text-color-default: var(--text-color-light);
+
+  --title-color-dark: #{$title-color-dark};
+  --title-color-light: #{$title-color-light};
+  --title-color-default: var(--title-color-light);
+}
+
+
+body {
+  font-family: $font-roboto;
+  background-color: var(--body-bg-default);
+}
+
+a {
+  color: var(--text-color-default);
+}
+
+p{
+  color: var(--text-color-default);
+}
+
+h1,h2,h3,h4,h5,h6{
+  color: var(--title-color-default);
+}
+
+.header {
+  background-color: var(--card-bg-default);
+  padding: 20px 0px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: $z-index-header;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  font-size: clamp(20px, 2vw, 25px);
+  font-weight: bold;
+  color: blueviolet;
+  text-transform: uppercase;
+}
+
+.header-inner__right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.input-search,
+.select-country {
+  border: 2px solid #ddd;
+  padding: 10px 20px;
+  font-size: clamp(14px, 1vw, 16px);
+}
+
+.btn-them {
+  background-color: blueviolet;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: clamp(14px, 1.5vw, 15px);
+  text-transform: capitalize;
+  position: relative;
+
+  & > input {
+    opacity: 0;
+  }
+
+  .label-them {
+    position: absolute;
+    inset: 0px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    color: #fff;
+
+    & > .span-icon-sun {
+      display: none;
+    }
+    & > .span-icon-moon {
+      display: block;
+    }
+  }
+
+    & .dark {
+      & > .span-icon-sun {
+        display: block;
+      }
+      & > .span-icon-moon {
+        display: none;
+      }
+    }
+
+  }
+
+.section-country {
+  padding: clamp(50px, 2vw, 80px);
+}
+
+.country-block {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  .country {
+    box-shadow: 4px 7px 15px -1px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+
+    .country-link {
+      position: absolute;
+      inset: 0;
+    }
+
+    .country-img {
+      display: flex;
+      height: 155px;
+
+      & > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+    }
+    .country-info {
+        padding: clamp(17px, 2vw, 25px) clamp(15px, 1.5vw, 20px);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        background-color: var(--card-bg-default);
+      }
+
+        h2 {
+        font-size: 19px;
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+  }
+}
+
+
+
+.loading {
+  position: fixed;
+  inset: 0px;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: $z-index-loading;
+
+  display: none;
+  place-items: center;
+  padding: 10px;
+
+  &.active {
+      display: grid;
+  }
+}
+
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 32px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+
+
